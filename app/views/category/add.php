@@ -7,21 +7,13 @@
 					<input name="name" type="text" class="form-control">
 				</div>
                 <div class="form-group">
-					<label>Price</label>
-					<input name="price" type="number" class="form-control">
-				</div>
-                <div class="form-group">
 					<label>Category</label>
-					<select name="cat_id" id="">
+					<select name="parent_id" id="">
 						<option value="">Not select</option> 
 						{% for cat in categories %}
 						<option value="{{cat.id}}">{{cat.name}}</option>
 						{% endfor %}
 					</select>
-				</div>
-                <div class="form-group">
-					<label>Preview </label>
-					<input name="preview" type="text" class="form-control">
 				</div>
 				<button type="submit" class="btn btn-primary">Add</button>
 			</form>

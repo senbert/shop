@@ -25,7 +25,25 @@ class Controller_Categorie extends Controller_Admin
 
         $main_cats = Category::table()->where('parent_id', Category::PARENT_MAIN )->findMany();
 
-        $this->render('product/categories', ['categories' => $categories, 'main_cats' => $main_cats, 'cat_id' => $cat_id]);
+        $this->render('category/index', ['categories' => $categories, 'main_cats' => $main_cats, 'cat_id' => $cat_id]);
+    }
+
+    public function action_add()
+    {
+        $categories = Category::table()->where('parent_id', Category::PARENT_MAIN)->findMany();
+        $this->render('category/add', ['categories' => $categories]);
+    }
+
+    public function action_create()
+    {
+        $error = Category::validate($_POST);
+        if ($error) {
+            $this->addMessage(false, $error)->back();
+        }
+
+        $result = Category::table()->create()->set($_POST)->save();
+        $this->addMessage($result, 'add_category');
+        $result ? $this->redirect('admin/categories') : $this->back();
 
     }
 

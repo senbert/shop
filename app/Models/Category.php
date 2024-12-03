@@ -44,6 +44,19 @@ public static function getCategoriesTree()
     return $main_categories;
 }
 
+public static function validate($data)
+    {
+        $v = new \Valitron\Validator($data);
+        $v->rule('required', ['name', 'parent_id'])->message('empty_data_category_{field}');
+        $v->rule('lengthMin', ['name'], 4)->message('min_string_category_{field}');
+        $v->labels(['name' => 'name', 'parent_id' => 'parent_id']);
+        $result = $v->validate();
+        if ($result) return false;
+        foreach ($v->errors() as $field => $errors) {
+            return $errors[0];
+        }
+    }
+
          
 
 

@@ -26,8 +26,8 @@ SimpleRouter::get('admin/contacts/', 'Controller_Product@action_contact');
 //// admin categori
 SimpleRouter::get('admin/categories/{cat_id?}', 'Controller_Categorie@action_index');
 SimpleRouter::get('admin/single/{id}', 'Controller_Categorie@action_single');
-SimpleRouter::get('admin/add_category', 'Controller_Product@action_add');
-SimpleRouter::post('/admin/add_product', 'Controller_Product@action_create');
+SimpleRouter::get('admin/add_category', 'Controller_Categorie@action_add');
+SimpleRouter::post('/admin/add_category', 'Controller_Categorie@action_create');
 
 
 
