@@ -5,6 +5,8 @@ use App\Models\Product;
 use App\Models\Article;
 use App\Models\ProductImg;
 use App\Models\Category;
+use App\Helpers\File;
+use Intervention\Image\ImageManager;
 
 
 class Controller_Product extends Controller_Admin
@@ -30,15 +32,52 @@ class Controller_Product extends Controller_Admin
 
     public function action_create()
     {
+
+        // try {
+        //     $img = new File('img', 5000000, ['png', 'jpg', 'jpeg']);
+        //     $img->upload('assets/img/original');
+        // } catch (\Exception $e) {
+        //      $this->addMessage(false, $e->getMessage())->back();
+        // }
+
         $error = Product::validate($_POST);
         if ($error) {
             $this->addMessage(false, $error)->back();
         }
+        $fileName = $this->uploadFile();
+        if ($fileName === false) {
+               $this->addMessage(false, 'not_file')->back();
+        } else {
+            $this->dublicatImg($fileName); 
+        }
         $product = Product::table()->create()->set($_POST);
         $result = $product->save();
+        $file = ProductImg::table()->create();
+        $file->file_name = $fileName;
+        $file->prod_id = $product->id();
+        $file->save();
         $this->addMessage($result, 'add_product');
         $result ? $this->redirect('admin/product/' . $product->id()) : $this->back();
+    } 
+
+    public function dublicatImg($file)
+    {
+        // dd($file);
+        $manager = new ImageManager(['driver' => 'gd']);
+        $img = $manager->make('assets/img/product/original/' . $file);
+        $img->resize(270, 265);
+        $img->save('assets/img/product/card/' . $file);
+
+        $img->resize(600, 656);
+        $img->save('assets/img/product/big/' . $file);
+
+        $img->resize(141, 135);
+        $img->save('assets/img/product/min/' . $file);
+
+
     }
+
+
 
     public function action_delete($id)
     {
@@ -66,6 +105,37 @@ class Controller_Product extends Controller_Admin
     {
         // dd('Hello');
         $this->render('product/categories');
+    }
+
+    private function uploadFile()
+    {
+        // dd($_FILES);
+        if ($_FILES['img']['error'] == 4) {
+           return false;
+        }    
+        $storage = new \Upload\Storage\FileSystem('assets/img/product/original');
+        $file = new \Upload\File('img', $storage);
+        // dd($file->getErrorCode());
+        $new_filename = time();
+     
+        $valid_types = new \Upload\Validation\Mimetype(['image/png', 'image/jpg', 'image/jpeg']);
+        // dd($valid_types);
+        $max_size = new \Upload\Validation\Size('10M');
+        // dd($max_size);
+        $rules = [$valid_types, $max_size];
+        // dd($rules);
+        $file->addValidations($rules);
+
+        $file->setName($new_filename);
+        try {
+            $file->upload();
+            return $file->getNameWithExtension();
+            // $this->redirect('product/index');
+        } catch (\Exception $e) {
+            $errors = $file->getErrors();
+            dd($errors);
+        
+        }
     }
 
 

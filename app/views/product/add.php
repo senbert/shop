@@ -27,6 +27,10 @@
 					<label>Preview </label>
 					<input name="preview" type="text" class="form-control">
 				</div>
+				<div class="form-group">
+					<label>Img</label>
+					<input name="img" type="file" class="form-control">
+				</div>
 				<button type="submit" class="btn btn-primary">Add</button>
 			</form>
 		</div>

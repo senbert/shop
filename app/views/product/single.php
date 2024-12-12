@@ -72,7 +72,7 @@
                 <tr>
                     <th scope="row">{{loop.index}}</th>
                     <td>
-						<img src="/assets/img/product/card/{{image.file_name}}">
+						<img src="/assets/img/product/min/{{image.file_name}}">
 					</td>
                     <td>
                         <a href="#" class="btn-sm btn-danger">Delete</a>

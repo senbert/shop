@@ -28,12 +28,12 @@
 				<tr>
 					<th scope="row">{{loop.index}}</th>
 					<td>
-						<a href="/admin/single/{{categorie.id}}">{{category.name}}</a>
+						<a href="/admin/single/{{category.id}}">{{category.name}}</a>
 					</td>
 					<th scope="row">{{category.parent.name}}</th>
 					<td>
-						<a href="/admin/delete/{{product.id}}" class="btn-sm btn-danger">Delete</a>
-						<a href="#" class="btn-sm btn-primary">Edit</a>
+						<a href="/cat/delete/{{category.id}}" class="btn-sm btn-danger">Delete</a>
+						<a href="/cat/edit/{{category.id}}" class="btn-sm btn-primary">Edit</a>
 					</td>
 				</tr>
 			{% endfor %}

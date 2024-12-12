@@ -33,7 +33,7 @@
 					<td>{{product.cat.name}}</td>
 					<td>
 						<a href="/admin/delete/{{product.id}}" class="btn-sm btn-danger">Delete</a>
-						<a href="#" class="btn-sm btn-primary">Edit</a>
+						<a href="/admin/edit/{{product.id}}" class="btn-sm btn-primary">Edit</a>
 					</td>
 				</tr>
 			{% endfor %}

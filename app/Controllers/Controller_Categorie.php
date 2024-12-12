@@ -5,11 +5,11 @@ use App\Models\Product;
 use App\Models\Article;
 use App\Models\ProductImg;
 use App\Models\Category;
+use App\Helpers\File;
 
 
 class Controller_Categorie extends Controller_Admin
 {
-    
 
     public function action_index($cat_id = null)
     {
@@ -44,10 +44,28 @@ class Controller_Categorie extends Controller_Admin
         $result = Category::table()->create()->set($_POST)->save();
         $this->addMessage($result, 'add_category');
         $result ? $this->redirect('admin/categories') : $this->back();
-
     }
 
+    public function action_delete($id)
+    {
+        $delete = Category::table()->find_one($id);
+        $delete->delete();
+        $this->redirect('admin/categories');
+    }
 
+    public function action_edit($id)
+    {
+        $categories = Category::table()->where('parent_id', Category::PARENT_MAIN)->findMany();
+        $cat_one = Category::findOne($id);
+        $this->render('category/edit', ['categories' => $categories, 'cat_one' => $cat_one]);
+    }
+
+    public function action_editCat($data)
+    {
+        $result = Category::table()->create()->set($data)->save();
+        $this->addMessage($result, 'edit_categore');
+        $result ? $this->redirect('admin/categories') : $this->back();
+    }
 
 
 }

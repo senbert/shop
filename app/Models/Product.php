@@ -32,7 +32,7 @@ class Product extends Model
     {
         $v = new \Valitron\Validator($data);
         $v->rule('required', ['name', 'price'])->message('empty_data_product_{field}');
-        $v->rule('lengthMin', ['name','price'], 4)->message('min_string_product_{field}');
+        // $v->rule('lengthMin', ['name','price'], 4)->message('min_string_product_{field}');
         $v->labels(['name' => 'name', 'price' => 'price']);
         $result = $v->validate();
         if ($result) return false;
