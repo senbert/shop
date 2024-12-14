@@ -42,7 +42,8 @@ SimpleRouter::post('/admin/edit', function() {
 });
 
 // add img product
-SimpleRouter::get('product/img/{id}', 'Controller_Categorie@action_edit');
+SimpleRouter::get('product_img/add/{id}', 'Controller_ProductImg@action_add');
+SimpleRouter::post('product_img/add/', 'Controller_ProductImg@action_create');
 // SimpleRouter::post('/admin/edit', 'Controller_Categorie@action_editCat');
 
 

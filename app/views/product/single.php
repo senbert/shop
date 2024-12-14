@@ -57,7 +57,7 @@
         <!-- Images -->
         <div class="tab-pane fade" id="images">
             <h2 class="text-center">Images Product</h2>
-            <a href="#" class="btn btn-primary mb-3" role="button">Add Image</a>
+            <a href="/product_img/add/{{product.id}}" class="btn btn-primary mb-3" role="button">Add Image</a>
 
             <table class="table table-bordered table-hover">
                 <thead class="thead-dark">
