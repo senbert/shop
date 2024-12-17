@@ -9,6 +9,7 @@ class Article extends Model
     {
         return 'articles';
     } 
+    
 
 
 }

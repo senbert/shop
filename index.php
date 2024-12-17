@@ -44,7 +44,11 @@ SimpleRouter::post('/admin/edit', function() {
 // add img product
 SimpleRouter::get('product_img/add/{id}', 'Controller_ProductImg@action_add');
 SimpleRouter::post('product_img/add/', 'Controller_ProductImg@action_create');
+SimpleRouter::get('product_img/delete/{id}', 'Controller_ProductImg@action_delete');
 // SimpleRouter::post('/admin/edit', 'Controller_Categorie@action_editCat');
+
+//Admin Articles 
+SimpleRouter::get('admin/articles', 'Controller_Article@action_index');
 
 
 

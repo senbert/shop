@@ -27,7 +27,7 @@
 					<a class="nav-link" href="/admin/categories">Categories</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="blog.html">Blog</a>
+					<a class="nav-link" href="/admin/articles">Blog</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/admin/contacts">Coontacts</a>

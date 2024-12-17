@@ -75,7 +75,7 @@
 						<img src="/assets/img/product/min/{{image.file_name}}">
 					</td>
                     <td>
-                        <a href="#" class="btn-sm btn-danger">Delete</a>
+                        <a href="/product_img/delete/{{image.id}}" class="btn-sm btn-danger">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}

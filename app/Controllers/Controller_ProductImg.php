@@ -46,7 +46,7 @@ class Controller_ProductImg extends Controller_Admin
      
         $valid_types = new \Upload\Validation\Mimetype(['image/png', 'image/jpg', 'image/jpeg']);
         // dd($valid_types);
-        $max_size = new \Upload\Validation\Size('10B');
+        $max_size = new \Upload\Validation\Size('10M');
         // dd($max_size);
         $rules = [$valid_types, $max_size];
         // dd($rules);
@@ -83,8 +83,28 @@ class Controller_ProductImg extends Controller_Admin
 
         $img->resize(141, 135);
         $img->save('assets/img/product/min/' . $file);
+    }
 
+    public function action_delete($img_id)
+    {
+        $img = ProductImg::findOne($img_id);
 
+        $this->deleteFiles($img->file_name);
+    
+        $img->delete();
+        $this->addMessage(true, 'delete_img_product')->back();
+
+    }
+
+    private function deleteFiles($file_name)
+    {
+        $folders = ['big', 'card', 'min', 'original'];
+        foreach ($folders as $folder) {
+            if (file_exists('assets/img/product/' . $folder . '/'. $file_name)) {
+            unlink('assets/img/product/' . $folder . '/'.  $file_name);
+        }
+    }
+        
     }
 
 }
