@@ -49,6 +49,13 @@ SimpleRouter::get('product_img/delete/{id}', 'Controller_ProductImg@action_delet
 
 //Admin Articles 
 SimpleRouter::get('admin/articles', 'Controller_Article@action_index');
+SimpleRouter::get('article/add', 'Controller_Article@action_add');
+SimpleRouter::post('article/add', 'Controller_Article@action_create');
+SimpleRouter::get('article/single/{id}', 'Controller_Article@action_single');
+
+
+
+SimpleRouter::post('upload/file', 'Controller_Article@uploadFile');
 
 
 

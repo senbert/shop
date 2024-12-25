@@ -13,6 +13,7 @@
 			<th scope="col">Price</th>
 			<th scope="col">Old Price</th>
 			<th scope="col">Category</th>
+			<th scope="col">Popular</th>
 			<th scope="col">Actions</th>
 		</tr>
 		</thead>
@@ -31,6 +32,7 @@
 					{% endif %}
 					</td>
 					<td>{{product.cat.name}}</td>
+					<td>{{product.popular}}</td>
 					<td>
 						<a href="/admin/delete/{{product.id}}" class="btn-sm btn-danger">Delete</a>
 						<a href="/admin/edit/{{product.id}}" class="btn-sm btn-primary">Edit</a>

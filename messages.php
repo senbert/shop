@@ -20,6 +20,13 @@ return [
        'file_type' => 'Не правленый тип файла', 
         'not_file' => 'Ошибка добавления файла',
         'add_product' => 'Ошибка добавления продукта', 
+        'empty_data_product_title' => 'Ошибка добавления даты',
+        'empty_data_product_сontent' =>  'Ошибка добавления сontent',
+        'empty_data_product_autor' => 'Ошибка добавления автора',
+        'empty_data_product_title' =>  'Ошибка добавления title',
+        'empty_data_product_preview' =>  'Ошибка добавления preview',
+        
+
 
         
     ]
