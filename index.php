@@ -24,6 +24,10 @@ SimpleRouter::get('admin/delete/{id}', 'Controller_Product@action_delete');
 SimpleRouter::get('admin/product/{id}', 'Controller_Product@action_single');
 SimpleRouter::get('admin/image/{id}', 'Controller_Product@action_image');
 SimpleRouter::get('admin/contacts/', 'Controller_Product@action_contact');
+// hange popular
+SimpleRouter::get('admin/change_popular/{id}', 'Controller_Product@changePopular');
+SimpleRouter::get('admin/popular/', 'Controller_Product@action_popular');
+
 //// admin categori
 SimpleRouter::get('admin/categories/{cat_id?}', 'Controller_Categorie@action_index');
 SimpleRouter::get('admin/single/{id}', 'Controller_Categorie@action_single');

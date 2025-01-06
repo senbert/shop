@@ -138,6 +138,29 @@ class Controller_Product extends Controller_Admin
         }
     }
 
+    public function changePopular($id_product)
+
+    {
+        $product = Product::findOne($id_product);
+        // dd($product);
+
+        $product->popular = $product->popular ? Product::NOT_POPULAR : Product::POPULAR; 
+        $product->save();
+        $this->addMessage(true, 'change_popular')->back();
+    }
+
+    public function action_popular()
+
+    {
+        $products = Product::table()->where('popular', Product::POPULAR)->findMany();
+        foreach ($products as $product) {
+            $product->img = ProductImg::table()->where('prod_id', $product->id)->findMany();
+        }
+        $this->render('product/popular', ['products' => $products]);
+    }
+
+
+
 
 
 

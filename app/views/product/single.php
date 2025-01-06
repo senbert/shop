@@ -16,6 +16,7 @@
         <div class="tab-pane fade show active" id="info">
             <h2 class="text-center">Info</h2>
             <a href="#" class="btn btn-primary mb-3" role="button">Edit product</a>
+            <a href="/admin/change_popular/{{product.id}}" class="btn btn-primary mb-3" role="button">Change Popular</a>
 
             <table class="table table-bordered table-hover">
                 <thead class="thead-dark">
@@ -32,19 +33,24 @@
                         <td>{{product.name}}</td>
                     </tr>
                     <tr>
-                        <th>3</th>
+                        <th>2</th>
                         <th>Category</th>
                         <td>{{product.category.name}}</td>
                     </tr>
                     <tr>
-                        <th>4</th>
+                        <th>3</th>
                         <th>Price</th>
                         <td>{{product.price}}$</td>
                     </tr>
                     <tr>
-                        <th>5</th>
+                        <th>4</th>
                         <th>Old Price</th>
                         <td>{{ product.price_old ? product.price_old ~ '$' }}</td>
+                    </tr>
+                    <tr>
+                        <th>5</th>
+                        <th>Popular</th>
+                        <td>{{product.popular}}</td>
                     </tr>
                     <tr>
                         <th>6</th>
@@ -54,10 +60,12 @@
                 </tbody>
             </table>
         </div>
+        
         <!-- Images -->
         <div class="tab-pane fade" id="images">
             <h2 class="text-center">Images Product</h2>
             <a href="/product_img/add/{{product.id}}" class="btn btn-primary mb-3" role="button">Add Image</a>
+
 
             <table class="table table-bordered table-hover">
                 <thead class="thead-dark">

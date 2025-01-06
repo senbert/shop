@@ -7,8 +7,11 @@ class Product extends Model
 {
 
     const POPULAR = 1;
+    const NOT_POPULAR = 0;
     
     const CAT_ID = 1;
+
+    
     
     public static function getTable()
     {
@@ -40,6 +43,8 @@ class Product extends Model
             return $errors[0];
         }
     }
+
+    
 
 
 
