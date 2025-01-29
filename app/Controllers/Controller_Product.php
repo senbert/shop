@@ -154,9 +154,20 @@ class Controller_Product extends Controller_Admin
     {
         $products = Product::table()->where('popular', Product::POPULAR)->findMany();
         foreach ($products as $product) {
+                // dd($product);
             $product->img = ProductImg::table()->where('prod_id', $product->id)->findMany();
+            $product->cat = Category::findOne($product->cat_id);
         }
         $this->render('product/popular', ['products' => $products]);
+    }
+
+    public function action_popular_delete($product_id)
+    {
+        $product = Product::findOne($product_id);
+        $product->popular = Product::NOT_POPULAR;
+        $product->save();
+        $this->addMessage(true, 'delete_popular')->back();
+
     }
 
 

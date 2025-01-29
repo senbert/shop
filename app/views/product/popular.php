@@ -1,9 +1,9 @@
 <div class="container">
-	<h1 class="text-center">Products</h1>
+	<h1 class="text-center">Popular</h1>
 	
 	<a href="/admin/add_product" class="btn btn-primary mb-3" role="button">Add product</a>
-	<a href="/admin/popular" class="btn btn-primary mb-3" role="button">Populars</a>
 
+<?php dd($products); ?>
 	
 	<table class="table table-bordered table-hover">
 		<thead class="thead-dark">
@@ -30,13 +30,12 @@
 					<td>
 					{% if product.price_old %} 
 						{{product.price_old}}$
-					{% endif %}
+					{% endif %} 
 					</td>
 					<td>{{product.cat.name}}</td>
 					<td>{{product.popular}}</td>
-					<td>
-						<a href="/admin/delete/{{product.id}}" class="btn-sm btn-danger">Delete</a>
-						<a href="/admin/edit/{{product.id}}" class="btn-sm btn-primary">Edit</a>
+					<td> 
+						<a href="/admin/delete_popular/{{product.id}}" class="btn-sm btn-danger">Delete</a>
 					</td>
 				</tr>
 			{% endfor %}

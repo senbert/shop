@@ -4,8 +4,9 @@
 
 {% include 'templates/main_categories.php'  %}
 
+{% if products %}
 {% include 'templates/product_area.php'  %}
-
+{% endif %}
 
 {% include 'templates/deal_area.php'  %}
 

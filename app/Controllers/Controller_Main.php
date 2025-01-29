@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Models\Product;
 use App\Models\Article;
 use App\Models\ProductImg;
+use App\Models\BestProduct;
 
 
 class Controller_Main extends Controller_Public
@@ -11,16 +12,15 @@ class Controller_Main extends Controller_Public
 
     public function action_index()
     {
-        $products = Product::table()->where('popular', Product::POPULAR)->findMany();
-        foreach ($products as $product) {
-            $product->images = ProductImg::table()->where('prod_id', $product->id)->findMany();
-        }
+        $products = Product::getPopular();
+
         $articles = Article::table()->order_by_desc('id')->limit(3)->findMany();
-    //    dd($products);
-        
+        $bestProduct = BestProduct::get();
+    
         // dd($products);
-        $this->render('main/index', ['products' => $products, 'articles' => $articles]);
+        $this->render('main/index', ['products' => $products, 'articles' => $articles, 'best_product' => $bestProduct]);
     }
+
 
     public function action_shop($cat_id = null)
     {

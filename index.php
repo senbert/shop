@@ -27,7 +27,17 @@ SimpleRouter::get('admin/contacts/', 'Controller_Product@action_contact');
 // hange popular
 SimpleRouter::get('admin/change_popular/{id}', 'Controller_Product@changePopular');
 SimpleRouter::get('admin/popular/', 'Controller_Product@action_popular');
+SimpleRouter::get('admin/delete_popular/{id}', 'Controller_Product@action_popular_delete');
 
+// Blog
+SimpleRouter::get('/blog/{tag?}', 'Controller_Blog@action_index');
+SimpleRouter::get('blog/single/{id}', 'Controller_Blog@action_single');
+
+//// Best product
+SimpleRouter::get('admin/best_product/', 'Controller_BestProduct@action_index'); 
+SimpleRouter::get('admin/delete_best_product/', 'Controller_BestProduct@action_delete'); 
+SimpleRouter::get('admin/add_best_product/{id}', 'Controller_BestProduct@action_create');
+SimpleRouter::post('admin/add_best_product/', 'Controller_BestProduct@action_add');
 //// admin categori
 SimpleRouter::get('admin/categories/{cat_id?}', 'Controller_Categorie@action_index');
 SimpleRouter::get('admin/single/{id}', 'Controller_Categorie@action_single');

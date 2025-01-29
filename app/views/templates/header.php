@@ -70,7 +70,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="blog.html">Blog</a>
+                                    <a href="/blog">Blog</a>
                                 </li>
                                 <li><a href="about-us.html">ABOUT</a></li>
                                 <li><a href="contact.html">contact us</a></li>

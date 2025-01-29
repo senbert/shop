@@ -44,6 +44,18 @@ class Product extends Model
         }
     }
 
+    public static function getPopular()
+    {
+        $products = self::table()->where('popular', self::POPULAR)->findMany();
+       if ($products) {
+            foreach ($products as $product) {
+                $product->images = ProductImg::table()->where('prod_id', $product->id)->findMany();
+            }  
+       }
+       return $products;
+    }
+
+
     
 
 

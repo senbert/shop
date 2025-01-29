@@ -17,6 +17,7 @@
             <h2 class="text-center">Info</h2>
             <a href="#" class="btn btn-primary mb-3" role="button">Edit product</a>
             <a href="/admin/change_popular/{{product.id}}" class="btn btn-primary mb-3" role="button">Change Popular</a>
+            <a href="/admin/add_best_product/{{product.id}}" class="btn btn-primary mb-3" role="button">Add best product</a>
 
             <table class="table table-bordered table-hover">
                 <thead class="thead-dark">

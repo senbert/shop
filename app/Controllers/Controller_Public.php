@@ -11,7 +11,7 @@ class Controller_Public extends Controller_Base
 
     public function render($template, $data = null)
     {
-        // dd($template);
+
         $data['content'] = $template;
        
         $data['categories'] = Category::getCategoriesTree();

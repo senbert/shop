@@ -4,7 +4,7 @@
 	
 	<a href="/admin/add_product" class="btn btn-primary mb-3" role="button">Add product</a>
 	<a href="/admin/popular" class="btn btn-primary mb-3" role="button">Populars</a>
-
+	
 	
 	<table class="table table-bordered table-hover">
 		<thead class="thead-dark">

@@ -8,19 +8,19 @@
         <div class="row">
             <div class="col-lg-6 col-md-6">
                 <div class="deal-img wow fadeInLeft">
-                    <a href="#"><img src="../assets/img/banner/banner-2.png" alt=""></a>
+                    <a href="#"><img src="/assets/img/product/card/{{best_product.img.file_name}}" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="deal-content">
-                    <h3><a href="#">Name Your Product</a></h3>
+                    <h3><a href="#">{{best_product.data.name}}</a></h3>
                     <div class="deal-pro-price">
-                        <span class="deal-old-price">$16.00 </span>
+                        <span class="deal-old-price">${{best_product.data.price}} </span>
                         <span> $10.00</span>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, co adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita ullamco laboris nisi ut aliquip ex ea commodo </p>
+                    <p>{{best_product.description}}</p>
                     <div class="timer timer-style">
-                        <div data-countdown="2017/10/01"></div>
+                        <div data-countdown="2025/05/05"></div>
                     </div>
                     <div class="discount-btn mt-35">
                         <a class="btn-style" href="#">SHOP NOW</a>
