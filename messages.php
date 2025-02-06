@@ -10,6 +10,8 @@ return [
         'delete_popular' => 'Популярное успешно измененно',
         'delete_best_product' => 'Популярный товар успешно удален',
         'add_delete_best_product' => 'Популярный товар успешно добавлен',
+        'add_comm_product' => 'комментарий успешно добавлен',
+        'delete_comm_product' => 'комментарий успешно удален'
         
     ],
     
@@ -29,6 +31,7 @@ return [
         'empty_data_product_autor' => 'Ошибка добавления автора',
         'empty_data_product_title' =>  'Ошибка добавления title',
         'empty_data_product_preview' =>  'Ошибка добавления preview',
+        'add_comm_product' => 'ошибка добавления комментария',
         
 
 

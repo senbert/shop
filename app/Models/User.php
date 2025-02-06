@@ -3,11 +3,13 @@
 namespace App\Models;
 
 
-class Article_Message extends Model
+class User extends Model
 {
     public static function getTable()
     {
-        return 'article_messages';
+        return 'users';
     }
+
+    
 
 }

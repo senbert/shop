@@ -21,7 +21,6 @@ class Controller_Main extends Controller_Public
         $this->render('main/index', ['products' => $products, 'articles' => $articles, 'best_product' => $bestProduct]);
     }
 
-
     public function action_shop($cat_id = null)
     {
         $this->namePage = 'Shop Page';
