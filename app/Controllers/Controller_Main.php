@@ -5,6 +5,7 @@ use App\Models\Product;
 use App\Models\Article;
 use App\Models\ProductImg;
 use App\Models\BestProduct;
+use App\Helpers\Pagination;
 
 
 class Controller_Main extends Controller_Public
@@ -26,12 +27,27 @@ class Controller_Main extends Controller_Public
         $this->namePage = 'Shop Page';
         if ($cat_id) {
             $products = Product::table()->where('cat_id', $cat_id)->findMany();
+            $paginator = false;
             // dd($products);   
         } else {
-           $products = Product::findAll();
+            $totalItems = Product::table()->count(); // Общее количество элементов
+            $perPage = 3; // Количество элементов на одной странице
+            $currentPage = isset($_GET['page']) ? $_GET['page'] : 1; // Текущая страница (из GET-запроса)
+            // $urlPattern = '/pagination/(:num)'; // Шаблон URL для пагинации
+            $urlPattern = '/shop?page=(:num)';
+            $paginator = new \JasonGrimes\Paginator($totalItems, $perPage, $currentPage, $urlPattern);
+            $products = Product::table()
+            ->offset(($currentPage - 1) * $perPage)
+            ->limit($perPage)
+            ->findMany();
+           
         }
 
-        $this->render('main/shop/index', ['products' => $products]);
+        foreach ($products  as $product) {
+            $product->img = ProductImg::table()->where('prod_id', $product->id)->find_one();
+           }
+           
+        $this->render('main/shop/index', ['products' => $products, 'paginator' => $paginator]);
     }
 
     public function action_product($prod_id)
@@ -40,6 +56,8 @@ class Controller_Main extends Controller_Public
         $this->namePage = 'Product Details';
 
         $product = Product::table()->findOne($prod_id);
+        $product->img = ProductImg::table()->where('prod_id', $prod_id)->find_one();
+
         // dd($product);
 
         $this->render('main/product/index', ['product' => $product]);

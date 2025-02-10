@@ -6,7 +6,11 @@
                 <div class="product-wrapper mb-10">
                     <div class="product-img">
                         <a href="/product/{{product.id}}">
-                            <img src="/assets/img/product/card/{{product.img}}" alt="">
+                            {% if product.img %}
+                            <img src="/assets/img/product/card/{{product.img.file_name}}" alt="">
+                            {% else %}
+                            <img src="/assets/img/product/card/not-img.jpg" alt="">
+                            {% endif %}
                         </a>
                         <div class="product-action">
                             <a title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#">
@@ -51,8 +55,9 @@
             </div>
         {% endfor %}    
         </div>
-
+        {% if paginator %}
         {% include 'main/shop/_pagination.php' %}
+        {% endif %}
 
     </div>
 </div>

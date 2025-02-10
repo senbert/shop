@@ -36,12 +36,33 @@ public static function getCategoriesTree()
 {
     $main_categories = self::table()->where('parent_id', self::PARENT_MAIN)->findMany();
 // dd($main_categories);
+    $new_main_categories = [];
     foreach ($main_categories as $cat) {
-        $cat->sub = self::table()->where('parent_id', $cat->id)->findMany();
+        $sub = self::getSub($cat->id);
+        if ($sub) {
+            $cat->sub = $sub;
+            $new_main_categories[] = $cat;
+        }
+
+        // $cat->prod = Product::table()->where('cat_id', $cat->id)->findMany();
 
     }
+ 
+    return $new_main_categories;
+}
 
-    return $main_categories;
+private static function getSub($parent_id)
+{
+    $cats = self::table()->where('parent_id', $parent_id)->findMany();
+    $newCats = [];
+    foreach ($cats as $cat) {
+        $countProducts = Product::table()->where('cat_id', $cat->id)->count();
+        if ($countProducts) {
+            $newCats[] = $cat;
+        }
+        
+    }
+    return $newCats;
 }
 
 public static function validate($data)
