@@ -34,6 +34,9 @@ SimpleRouter::get('/blog/{tag?}', 'Controller_Blog@action_index');
 SimpleRouter::get('blog/single/{id}', 'Controller_Blog@action_single');
 SimpleRouter::post('/article/add_comment/', 'Controller_Blog@action_addComment');
 
+// Product ADD
+SimpleRouter::post('/product/add_comment/', 'Controller_Main@action_addComment');
+
 // Comments
 SimpleRouter::get('admin/comments', 'Controller_Comment@action_index');
 SimpleRouter::get('admin/comments_delete/{id?}', 'Controller_Comment@action_delete');

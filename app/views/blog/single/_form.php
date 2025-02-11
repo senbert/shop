@@ -15,7 +15,6 @@
                 <textarea placeholder="Massage" name="message"></textarea>
                 <input type="hidden" name="article_id" value="{{article.id}}">
                 <input type="submit" value="SEND MASSAGE">
-                
             </div>
         </div>
     </div>

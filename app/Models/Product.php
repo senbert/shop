@@ -55,6 +55,15 @@ class Product extends Model
        return $products;
     }
 
+    public static function getAllImg()
+    {
+        $products = self::findAll();
+        foreach ($products as $product) {
+            $product->img = ProductImg::table()->where('prod_id', $product->id)->find_one();
+        }
+        return $products;
+    }
+
 
     
 

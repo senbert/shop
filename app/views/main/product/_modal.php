@@ -10,25 +10,25 @@
                     <div class="quick-view-learg-img">
                         <div class="quick-view-tab-content tab-content">
                             <div class="tab-pane active show fade" id="modal1" role="tabpanel">
-                                <img src="../assets/img/quick-view/l1.jpg" alt="">
+                                <img src="/assets/img/quick-view/l1.jpg" alt="">
                             </div>
                             <div class="tab-pane fade" id="modal2" role="tabpanel">
-                                <img src="../assets/img/quick-view/l2.jpg" alt="">
+                                <img src="/assets/img/quick-view/l2.jpg" alt="">
                             </div>
                             <div class="tab-pane fade" id="modal3" role="tabpanel">
-                                <img src="../assets/img/quick-view/l3.jpg" alt="">
+                                <img src="/assets/img/quick-view/l3.jpg" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="quick-view-list nav" role="tablist">
                         <a class="active" href="#modal1" data-toggle="tab">
-                            <img src="../assets/img/quick-view/s1.jpg" alt="">
+                            <img src="/assets/img/quick-view/s1.jpg" alt="">
                         </a>
                         <a href="#modal2" data-toggle="tab" role="tab">
-                            <img src="../assets/img/quick-view/s2.jpg" alt="">
+                            <img src="/assets/img/quick-view/s2.jpg" alt="">
                         </a>
                         <a href="#modal3" data-toggle="tab" role="tab">
-                            <img src="../assets/img/quick-view/s3.jpg" alt="">
+                            <img src="/assets/img/quick-view/s3.jpg" alt="">
                         </a>
                     </div>
                 </div>

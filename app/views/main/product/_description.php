@@ -26,8 +26,9 @@
                 </div>
                 <div id="des-details3" class="tab-pane">
                     <div class="rattings-wrapper">
+                        {% for comment in comments %}
                         <div class="sin-rattings">
-                            <div class="star-author-all">
+                            <div class="star-author-all">    
                                 <div class="product-rating f-left">
                                     <i class="ti-star theme-color"></i>
                                     <i class="ti-star theme-color"></i>
@@ -37,66 +38,21 @@
                                     <span>(5)</span>
                                 </div>
                                 <div class="ratting-author f-right">
-                                    <h3>tayeb rayed</h3>
-                                    <span>12:24</span>
-                                    <span>9 March 2018</span>
+                                    <h3>{{comment.name}}</h3>
+                                    <span>{{comment.date}}</span>
                                 </div>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam, quis nost rud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam, quis nost.</p>
+                            <p>{{comment.message}}</p>
+
                         </div>
-                        <div class="sin-rattings">
-                            <div class="star-author-all">
-                                <div class="product-rating f-left">
-                                    <i class="ti-star theme-color"></i>
-                                    <i class="ti-star theme-color"></i>
-                                    <i class="ti-star theme-color"></i>
-                                    <i class="ti-star theme-color"></i>
-                                    <i class="ti-star"></i>
-                                    <span>(4)</span>
-                                </div>
-                                <div class="ratting-author f-right">
-                                    <h3>farhana shuvo</h3>
-                                    <span>12:24</span>
-                                    <span>9 March 2018</span>
-                                </div>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam, quis nost rud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam, quis nost.</p>
-                        </div>
-                    </div>
+                        {% endfor %}
                     <div class="ratting-form-wrapper">
                         <h3>Add your Comments :</h3>
                         <div class="ratting-form">
-                            <form action="#">
-                                <div class="star-box">
-                                    <h2>Rating:</h2>
-                                    <div class="product-rating">
-                                        <i class="ti-star theme-color"></i>
-                                        <i class="ti-star theme-color"></i>
-                                        <i class="ti-star theme-color"></i>
-                                        <i class="ti-star"></i>
-                                        <i class="ti-star"></i>
-                                        <span>(3)</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="rating-form-style mb-20">
-                                            <input placeholder="Name" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="rating-form-style mb-20">
-                                            <input placeholder="Email" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="rating-form-style form-submit">
-                                            <textarea name="message" placeholder="Message"></textarea>
-                                            <input type="submit" value="add review">
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
+                           
+                            <!-- form -->
+                             {% include 'main/product/_add.php' %}
+
                         </div>
                     </div>
                 </div>

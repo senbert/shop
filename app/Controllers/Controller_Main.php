@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Models\Product;
 use App\Models\Article;
+use App\Models\FoodComment;
 use App\Models\ProductImg;
 use App\Models\BestProduct;
 use App\Helpers\Pagination;
@@ -57,13 +58,22 @@ class Controller_Main extends Controller_Public
 
         $product = Product::table()->findOne($prod_id);
         $product->img = ProductImg::table()->where('prod_id', $prod_id)->find_one();
+        $products = Product::getAllImg();
+        $comments = FoodComment::findAll();;
+       
 
-        // dd($product);
-
-        $this->render('main/product/index', ['product' => $product]);
-        
+        $this->render('main/product/index', ['product' => $product,'products' => $products, 'comments' => $comments ]);
         
         
     }
+
+    public function action_addComment()
+    {
+        $_POST['date'] = time();
+        $result = FoodComment::table()->create()->set($_POST)->save();
+        $this->redirect('product/add_comment');
+    }
+
+    
 
 }
