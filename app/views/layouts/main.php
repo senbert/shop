@@ -29,8 +29,6 @@
 {% include 'templates/footer.php'  %}
 
 
-
-
 <!-- all js here -->
 <script src="/assets/js/jquery-1.12.0.min.js"></script>
 <script src="/assets/js/modernizr-2.8.3.min.js"></script>

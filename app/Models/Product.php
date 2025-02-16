@@ -64,6 +64,23 @@ class Product extends Model
         return $products;
     }
 
+    public static function countRating($comments)
+    {
+
+        if(!$comments){
+            return 0;
+        }
+        $countComments = count($comments);
+        $totalRating = 0;
+        foreach ($comments as $comment) {
+            $totalRating += $comment->likes; 
+        }
+
+        return ceil($totalRating / $countComments);
+
+
+    }
+
 
     
 

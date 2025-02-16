@@ -57,12 +57,20 @@ class Controller_Main extends Controller_Public
         $this->namePage = 'Product Details';
 
         $product = Product::table()->findOne($prod_id);
-        $product->img = ProductImg::table()->where('prod_id', $prod_id)->find_one();
-        $products = Product::getAllImg();
-        $comments = FoodComment::findAll();;
-       
 
-        $this->render('main/product/index', ['product' => $product,'products' => $products, 'comments' => $comments ]);
+        if ($product) {
+            $product->images = ProductImg::table()->where('prod_id', $prod_id)->findMany();
+        }
+        
+        
+
+        $comments = FoodComment::findAll();
+        $product->rating = Product::countRating($comments);
+       
+        $count = count($comments);
+    
+        
+        $this->render('main/product/index', ['product' => $product, 'comments' => $comments, 'count' => $count ]);
         
         
     }

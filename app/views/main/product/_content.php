@@ -1,12 +1,14 @@
 <div class="product-details-content">
     <h2>{{product.name}}</h2>
     <div class="product-rating">
+        {% for i in 1..5 %}
+        {% if i <= product.rating %}
         <i class="ti-star theme-color"></i>
-        <i class="ti-star theme-color"></i>
-        <i class="ti-star theme-color"></i>
+        {% else %}
         <i class="ti-star"></i>
-        <i class="ti-star"></i>
-        <span> ( 01 Customer Review )</span>
+        {% endif %}
+        {% endfor %}
+        <span> ( {{count}} Customer Review )</span>
     </div>
     <div class="product-price">
         <span class="new">${{product.price}} </span>

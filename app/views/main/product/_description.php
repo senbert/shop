@@ -5,7 +5,7 @@
             <div class="description-review-topbar nav text-center">
                 <a class="active" data-toggle="tab" href="#des-details1">DESCRIPTION</a>
                 <a data-toggle="tab" href="#des-details2">MORE INFORMATION</a>
-                <a data-toggle="tab" href="#des-details3">REVIEWS (2)</a>
+                <a data-toggle="tab" href="#des-details3">REVIEWS ({{count}})</a>
             </div>
             <div class="tab-content description-review-bottom">
                 <div id="des-details1" class="tab-pane active">
@@ -30,12 +30,14 @@
                         <div class="sin-rattings">
                             <div class="star-author-all">    
                                 <div class="product-rating f-left">
+                                    {% for i in 1..5 %}
+                                    {% if i <= comment.likes %}
                                     <i class="ti-star theme-color"></i>
-                                    <i class="ti-star theme-color"></i>
-                                    <i class="ti-star theme-color"></i>
-                                    <i class="ti-star theme-color"></i>
-                                    <i class="ti-star theme-color"></i>
-                                    <span>(5)</span>
+                                     {% else %}
+                                    <i class="ti-star"></i>
+                                    {% endif %}
+                                    {% endfor %}
+                                <span>({{comment.likes}})</span>
                                 </div>
                                 <div class="ratting-author f-right">
                                     <h3>{{comment.name}}</h3>
@@ -43,7 +45,6 @@
                                 </div>
                             </div>
                             <p>{{comment.message}}</p>
-
                         </div>
                         {% endfor %}
                     <div class="ratting-form-wrapper">

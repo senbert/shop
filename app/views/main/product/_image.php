@@ -1,17 +1,12 @@
 <div class="product-details-img">
-    <img id="zoompro" src="../assets/img/product/big/product-4.jpg" data-zoom-image="../assets/img/product/original/product-4.jpg" alt="zoom"/>
+    <img id="zoompro" src="/assets/img/product/big/{{product.images[0].file_name}}" data-zoom-image="/assets/img/product/original/{{product.images[0].file_name}}" alt="zoom"/>
+    
     <div id="gallery" class="mt-12 product-dec-slider owl-carousel">
-        <a data-image="../assets/img/product/big/product-4.jpg" data-zoom-image="../assets/img/product/original/product-4.jpg">
-            <img src="../assets/img/product/min/product-4.jpg" alt="">
+        {% for img in product.images %}
+        <a data-image="/assets/img/product/big/{{img.file_name}}" data-zoom-image="/assets/img/product/original/{{img.file_name}}">
+            <img src="/assets/img/product/min/{{img.file_name}}" alt="">
         </a>
-        <a data-image="../assets/img/product/big/product-5.jpg" data-zoom-image="../assets/img/product/original/product-5.jpg">
-            <img src="../assets/img/product/min/product-5.jpg" alt="">
-        </a>
-        <a data-image="../assets/img/product/big/product-6.jpg" data-zoom-image="../assets/img/product/original/product-6.jpg">
-            <img src="../assets/img/product/min/product-6.jpg" alt="">
-        </a>
-        <a data-image="../assets/img/product/big/product-7.jpg" data-zoom-image="../assets/img/product/original/product-7.jpg">
-            <img src="../assets/img/product/min/product-7.jpg" alt="">
-        </a>
+        {% endfor %}
+        
     </div>
 </div>
