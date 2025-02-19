@@ -12,8 +12,11 @@ Model::connect();
 
 
 SimpleRouter::get('/', 'Controller_Main@action_index');
-SimpleRouter::get('shop/{cat_id?}', 'Controller_Main@action_shop');
+SimpleRouter::get('category/{cat_id}', 'Controller_Main@action_category');
 SimpleRouter::get('product/{prod_id}', 'Controller_Main@action_product');
+SimpleRouter::get('shop/', 'Controller_Main@action_shop');
+SimpleRouter::post('search/', 'Controller_Main@action_search');
+
 
 // admin Product
 SimpleRouter::get('admin/products', 'Controller_Product@action_index');

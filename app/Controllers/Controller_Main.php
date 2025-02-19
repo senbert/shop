@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Models\Product;
 use App\Models\Article;
+use App\Models\Category;
 use App\Models\FoodComment;
 use App\Models\ProductImg;
 use App\Models\BestProduct;
@@ -23,14 +24,9 @@ class Controller_Main extends Controller_Public
         $this->render('main/index', ['products' => $products, 'articles' => $articles, 'best_product' => $bestProduct]);
     }
 
-    public function action_shop($cat_id = null)
+    public function action_shop()
     {
         $this->namePage = 'Shop Page';
-        if ($cat_id) {
-            $products = Product::table()->where('cat_id', $cat_id)->findMany();
-            $paginator = false;
-            // dd($products);   
-        } else {
             $totalItems = Product::table()->count(); // Общее количество элементов
             $perPage = 3; // Количество элементов на одной странице
             $currentPage = isset($_GET['page']) ? $_GET['page'] : 1; // Текущая страница (из GET-запроса)
@@ -42,14 +38,34 @@ class Controller_Main extends Controller_Public
             ->limit($perPage)
             ->findMany();
            
-        }
 
         foreach ($products  as $product) {
             $product->img = ProductImg::table()->where('prod_id', $product->id)->find_one();
            }
-           
-        $this->render('main/shop/index', ['products' => $products, 'paginator' => $paginator]);
+
+        
+
+        $this->render('main/shop/index', compact('products', 'paginator'));
     }
+
+     public function action_category($cat_id)
+    {
+        $this->namePage = 'Category Page';
+        $products = Product::table()->where('cat_id', $cat_id)->findMany();
+        $paginator = false;
+        $category = Category::findOne($cat_id);
+        
+        $category->parent = Category::findOne($category->parent_id);
+       
+        $category->parent->childrenSub = Category::getSub($category->parent_id);
+        foreach ($products  as $product) {
+            $product->img = ProductImg::table()->where('prod_id', $product->id)->find_one();
+           }
+
+         $this->render('main/category/index', compact('products', 'category'));
+
+    }
+
 
     public function action_product($prod_id)
     {
@@ -80,6 +96,18 @@ class Controller_Main extends Controller_Public
         $_POST['date'] = time();
         $result = FoodComment::table()->create()->set($_POST)->save();
         $this->redirect('product/add_comment');
+    }
+
+    public function action_search()
+    {
+        $products = Product::table()->where_like('name', '%'. $_POST['search'] .'%')->findMany();
+
+        foreach ($products  as $product) {
+            $product->img = ProductImg::table()->where('prod_id', $product->id)->find_one();
+           }
+
+        $this->render('search/index', ['products' => $products]);
+        
     }
 
     

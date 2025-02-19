@@ -55,7 +55,7 @@
                                             <ul>
                                                 <li class="mega-menu-title">{{category.name}}</li>
                                                 {% for sub_category in category.sub %}
-                                                <li><a href="/shop/{{sub_category.id}}">{{sub_category.name}}</a></li>
+                                                <li><a href="/category/{{sub_category.id}}">{{sub_category.name}}</a></li>
                                                  {% endfor %}
                                                 
                                             </ul>    
@@ -88,9 +88,9 @@
                                 <i class="ti-close s-close"></i>
                             </button>
                             <div class="search-content">
-                                <form action="#">
-                                    <input type="text" placeholder="Search">
-                                    <button>
+                                <form action="/search" method="post">
+                                    <input name="search" type="text" placeholder="Search">
+                                    <button type="submit">
                                         <i class="icon-magnifier"></i>
                                     </button>
                                 </form>

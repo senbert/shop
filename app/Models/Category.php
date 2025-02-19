@@ -51,11 +51,13 @@ public static function getCategoriesTree()
     return $new_main_categories;
 }
 
-private static function getSub($parent_id)
+public static function getSub($parent_id)
 {
     $cats = self::table()->where('parent_id', $parent_id)->findMany();
+    
     $newCats = [];
     foreach ($cats as $cat) {
+ 
         $countProducts = Product::table()->where('cat_id', $cat->id)->count();
         if ($countProducts) {
             $newCats[] = $cat;
