@@ -17,6 +17,9 @@ SimpleRouter::get('product/{prod_id}', 'Controller_Main@action_product');
 SimpleRouter::get('shop/', 'Controller_Main@action_shop');
 SimpleRouter::post('search/', 'Controller_Main@action_search');
 
+// price filter
+SimpleRouter::post('price/filter', 'Controller_Shop@action_price');
+
 
 // admin Product
 SimpleRouter::get('admin/products', 'Controller_Product@action_index');

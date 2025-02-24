@@ -106,7 +106,7 @@ class Controller_Main extends Controller_Public
             $product->img = ProductImg::table()->where('prod_id', $product->id)->find_one();
            }
 
-        $this->render('search/index', ['products' => $products]);
+         $this->render('main/category/index', compact('products'));
         
     }
 

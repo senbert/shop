@@ -80,6 +80,8 @@
     --------------------- */
     var sliderrange = $('#slider-range');
     var amountprice = $('#amount');
+    var minPrice = $('#min_price');
+    var maxPrice = $("#max_price");
     $(function() {
         sliderrange.slider({
             range: true,
@@ -88,6 +90,8 @@
             values: [35, 540],
             slide: function(event, ui) {
                 amountprice.val("$" + ui.values[0] + " - $" + ui.values[1]);
+                minPrice.val(ui.values[0]);
+                maxPrice.val(ui.values[1]);
             }
         });
         amountprice.val("$" + sliderrange.slider("values", 0) +

@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/assets/css/meanmenu.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/jquery-ui.css">
 </head>
 <body>
 
