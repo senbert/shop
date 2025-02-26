@@ -6,14 +6,14 @@
         <div class="row flex-row-reverse">
             <div class="col-lg-9">
                 
-            {% include 'main/shop/_topbar.php' %} 
+            {% include 'templates/shop/topbar.php' %} 
 
-            {% include 'main/shop/_list_product.php' %}
+            {% include 'templates/shop/products.php' %}
 
             </div>
             <div class="col-lg-3">
 
-            {% include 'main/shop/_sidebar.php' %}
+            {% include 'templates/shop/sidebar.php' %}
 
             </div>
         </div>

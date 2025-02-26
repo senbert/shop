@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Models\Category;
 use App\Helpers\Message;
+use App\Models\Brand;
 
 class Controller_Public extends Controller_Base
 {
@@ -13,7 +14,8 @@ class Controller_Public extends Controller_Base
     {
 
         $data['content'] = $template;
-       
+
+        $data['brands'] = Brand::findAll();
         $data['categories'] = Category::getCategoriesTree();
         $data['name_page'] = $this->namePage;
         $data['message'] = Message::display();

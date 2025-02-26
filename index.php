@@ -19,6 +19,16 @@ SimpleRouter::post('search/', 'Controller_Main@action_search');
 
 // price filter
 SimpleRouter::post('price/filter', 'Controller_Shop@action_price');
+// Brands
+SimpleRouter::get('brands/{brand_id}', 'Controller_Shop@action_brands');
+// Brands Admin
+SimpleRouter::get('brand/', 'Controller_Brand@action_index');
+SimpleRouter::get('brand/add', 'Controller_Brand@action_add');
+SimpleRouter::post('brand/add', 'Controller_Brand@action_create');
+SimpleRouter::get('brand/delete/{brand_id}', 'Controller_Brand@action_delete');
+SimpleRouter::get('brand/edit/{brand_id}', 'Controller_Brand@action_edit');
+SimpleRouter::post('brand/edit_create', 'Controller_Brand@action_edit_create');
+
 
 
 // admin Product

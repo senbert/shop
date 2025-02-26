@@ -7,6 +7,7 @@
             <div class="col-lg-9">
                 
             {% include 'templates/shop/topbar.php' %} 
+            <h1>Brands: {{brand.name}}</h1>
 
             {% include 'templates/shop/products.php' %}
 

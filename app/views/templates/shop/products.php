@@ -1,6 +1,5 @@
 <div class="grid-list-product-wrapper">
     <div class="product-view product-grid">
-        <h1>Category: {{category.name}}</h1>
         <div class="row">
            {% for product in products %}
             <div class="product-width col-lg-6 col-xl-4 col-md-6 col-sm-6">
@@ -57,7 +56,7 @@
         {% endfor %}    
         </div>
         {% if paginator %}
-        {% include 'main/shop/_pagination.php' %}
+        {% include 'templates/shop/pagination.php' %}
         {% endif %}
 
     </div>

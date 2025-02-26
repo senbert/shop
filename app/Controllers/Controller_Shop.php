@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\FoodComment;
 use App\Models\ProductImg;
 use App\Models\BestProduct;
+use App\Models\Brand;
 use App\Helpers\Pagination;
 
 
@@ -27,6 +28,18 @@ class Controller_Shop extends Controller_Public
            }
 
         $this->render('main/category/index', ['products' => $products]);
+    }
+
+    public function action_brands($brand_id)
+    {
+
+        $products = Product::table()->where('brand_id', $brand_id)->findMany();
+        foreach ($products  as $product) {
+            $product->img = ProductImg::table()->where('prod_id', $product->id)->find_one();
+        }
+        $brand = Brand::findOne($brand_id);
+
+        $this->render('shop/brands', ['products' => $products, 'brand' => $brand]);
     }
 
 

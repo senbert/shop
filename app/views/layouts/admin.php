@@ -41,6 +41,9 @@
 				<li class="nav-item">
 					<a class="nav-link" href="/admin/comments">Comments</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/brand">Brands</a>
+				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Pages</a>
 					<div class="dropdown-menu">

@@ -11,7 +11,10 @@ return [
         'delete_best_product' => 'Популярный товар успешно удален',
         'add_delete_best_product' => 'Популярный товар успешно добавлен',
         'add_comm_product' => 'комментарий успешно добавлен',
-        'delete_comm_product' => 'комментарий успешно удален'
+        'delete_comm_product' => 'комментарий успешно удален',
+        'add_brand' => 'брэнд успешно добавлен',
+        'delete_brand' => 'бранд успешно удален',
+        'edit_brand' => 'бранд успешно изменен',
         
     ],
     
@@ -32,6 +35,8 @@ return [
         'empty_data_product_title' =>  'Ошибка добавления title',
         'empty_data_product_preview' =>  'Ошибка добавления preview',
         'add_comm_product' => 'ошибка добавления комментария',
+        'add_brand' => 'ошибка добавления',
+        'edit_brand' => 'Ошибка изменения',
         
 
 
