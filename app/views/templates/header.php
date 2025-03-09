@@ -73,7 +73,7 @@
                                     <a href="/blog">Blog</a>
                                 </li>
                                 <li><a href="about-us.html">ABOUT</a></li>
-                                <li><a href="contact.html">contact us</a></li>
+                                <li><a href="/contact">contact us</a></li>
                                 <li><a href="/admin/products">Admin</a></li>
                                 
                             </ul>
@@ -138,7 +138,7 @@
                                     <h4>Total : <span class="shop-total">$260.00</span></h4>
                                 </div>
                                 <div class="shopping-cart-btn">
-                                    <a href="cart.html">view cart</a>
+                                    <a href="/cart">view cart</a>
                                     <a href="checkout.html">checkout</a>
                                 </div>
                             </div>

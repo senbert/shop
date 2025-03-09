@@ -14,6 +14,15 @@
 					<label>Price</label>
 					<input name="price" type="number" class="form-control">
 				</div>
+				<div class="form-group">
+					<label>Brand</label>
+					<select name="brand_id" id="brand_id">
+						<option value="">Not select</option> 
+						{% for brand in brands %}
+						<option value="{{brand.id}}">{{brand.name}}</option>
+						{% endfor %}
+					</select>
+				</div>
                 <div class="form-group">
 					<label>Category</label>
 					<select name="cat_id" id="">

@@ -43,7 +43,7 @@
                         <p>{{product.description}}</p>
                         <div class="product-list-action">
                             <div class="product-list-action-left">
-                                <a class="addtocart-btn" title="Add to cart" href="#"><i class="ion-bag"></i> Add to cart</a>
+                                <a class="addtocart-btn" title="Add to cart" href="/cart/add/"><i class="ion-bag"></i> Add to cart</a>
                             </div>
                             <div class="product-list-action-right">
                                 <a title="Wishlist" href="#"><i class="ti-heart"></i></a>

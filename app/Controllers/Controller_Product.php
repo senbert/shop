@@ -5,6 +5,7 @@ use App\Models\Product;
 use App\Models\Article;
 use App\Models\ProductImg;
 use App\Models\Category;
+use App\Models\Brand;
 use App\Helpers\File;
 use Intervention\Image\ImageManager;
 
@@ -18,6 +19,7 @@ class Controller_Product extends Controller_Admin
         foreach ($products as $product) {
             $product->img = ProductImg::table()->where('prod_id', $product->id)->find_one();
             $product->cat = Category::findOne($product->cat_id);
+            $product->brand = Brand::findOne($product->brand_id);
             // dd($product->cat_id);
         }
 
@@ -27,7 +29,8 @@ class Controller_Product extends Controller_Admin
     public function action_add()
     {
         $categories = Category::findAll();
-        $this->render('product/add', ['categories' => $categories]);
+        $brands = Brand::findAll();
+        $this->render('product/add', ['categories' => $categories, 'brands' => $brands]);
     }
 
     public function action_create()
@@ -39,7 +42,6 @@ class Controller_Product extends Controller_Admin
         // } catch (\Exception $e) {
         //      $this->addMessage(false, $e->getMessage())->back();
         // }
-
         $error = Product::validate($_POST);
         if ($error) {
             $this->addMessage(false, $error)->back();
@@ -59,6 +61,26 @@ class Controller_Product extends Controller_Admin
         $this->addMessage($result, 'add_product');
         $result ? $this->redirect('admin/product/' . $product->id()) : $this->back();
     } 
+
+
+    // edit
+    public function action_edit($prod_id)
+    {
+        $product = Product::findOne($prod_id);
+        $categories = Category::findAll();
+        $brands = Brand::findAll();
+        $this->render('product/edit', ['product' => $product, 'categories' => $categories, 'brands' => $brands]);
+    }
+
+    public function action_edit_create()
+    {
+        $product = Product::table()->where('id', $_POST['id'])->findOne();
+        $product->set($_POST);
+        $product->save();
+        $product ? $this->redirect('admin/products') : $this->back();
+
+    }
+
 
     public function dublicatImg($file)
     {

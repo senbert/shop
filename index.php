@@ -29,13 +29,26 @@ SimpleRouter::get('brand/delete/{brand_id}', 'Controller_Brand@action_delete');
 SimpleRouter::get('brand/edit/{brand_id}', 'Controller_Brand@action_edit');
 SimpleRouter::post('brand/edit_create', 'Controller_Brand@action_edit_create');
 
+// Contacts
+SimpleRouter::get('contact/', 'Controller_Contact@action_contact');
+SimpleRouter::post('contact/add', 'Controller_Contact@action_add');
+// Contacts Admin
+SimpleRouter::get('admin/contact', 'Controller_ContactAdmin@action_index');
+// SimpleRouter::post('contact/add', 'Controller_Contact@action_add');
+SimpleRouter::get('contact/status/{contct_id}', 'Controller_ContactAdmin@action_changeStatus');
 
+// Cart 
+SimpleRouter::get('cart/', 'Controller_Cart@action_index');
+SimpleRouter::get('cart/add/{prod_id}/{qty?}', 'Controller_Cart@action_add');
 
 // admin Product
 SimpleRouter::get('admin/products', 'Controller_Product@action_index');
 SimpleRouter::get('admin/add_product', 'Controller_Product@action_add');
 SimpleRouter::post('/admin/add_product', 'Controller_Product@action_create');
 SimpleRouter::get('admin/delete/{id}', 'Controller_Product@action_delete');
+SimpleRouter::get('admin/edit/{id}', 'Controller_Product@action_edit');
+SimpleRouter::post('admin/edit_create/', 'Controller_Product@action_edit_create');
+
 // admin sincle product
 SimpleRouter::get('admin/product/{id}', 'Controller_Product@action_single');
 SimpleRouter::get('admin/image/{id}', 'Controller_Product@action_image');

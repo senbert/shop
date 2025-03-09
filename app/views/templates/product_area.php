@@ -17,7 +17,7 @@
                             <a title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#">
                                 <i class="ti-plus"></i>
                             </a>
-                            <a title="Add To Cart" href="#">
+                            <a title="Add To Cart" href="cart/add/{{product.id}}">
                                 <i class="ti-shopping-cart"></i>
                             </a>
                         </div>

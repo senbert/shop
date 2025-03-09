@@ -33,9 +33,6 @@
 					<a class="nav-link" href="/admin/popular">Popular</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/admin/contacts">Coontacts</a>
-				</li>
-				<li class="nav-item">
 					<a class="nav-link" href="/admin/best_product">Best product</a>
 				</li>
 				<li class="nav-item">
@@ -43,6 +40,9 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/brand">Brands</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/admin/contact">Contacts</a>
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Pages</a>

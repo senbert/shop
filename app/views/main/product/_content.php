@@ -40,7 +40,7 @@
     </div>
     <div class="product-list-action">
         <div class="product-list-action-left">
-            <a class="addtocart-btn" href="#" title="Add to cart">
+            <a class="addtocart-btn" prod_id="{{product.id}}" href="#" title="Add to cart">
                 <i class="ion-bag"></i>
                 Add to cart
             </a>
@@ -61,3 +61,18 @@
         </ul>
     </div>
 </div>
+
+<script>
+let cartQty = document.querySelector('.cart-plus-minus-box');
+let addCartBtn = document.querySelector('.addtocart-btn');
+addCartBtn.onclick = addProductCart;
+function addProductCart(event) {
+   event.preventDefault();
+   let qty = cartQty.value;
+   let prodId = addCartBtn.getAttribute('prod_id');
+   location.href = '/cart/add/' + prodId + '/' + qty;
+    console.log(prodId);
+}
+
+
+</script>
