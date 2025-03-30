@@ -101,42 +101,44 @@
                         </div>
                         <div class="header-cart same-style">
                             <button class="icon-cart">
+                                
                                 <i class="icon-handbag"></i>
-                                <span class="count-style">02</span>
+                                {% if cart.count %}
+                                <span class="count-style">{{cart.count}}</span>
+                                {% endif %}
                             </button>
+                            
                             <div class="shopping-cart-content">
+                                {% if cart.products %}
                                 <ul>
+                                    {% for product in cart.products %}
                                     <li class="single-shopping-cart">
                                         <div class="shopping-cart-img">
-                                            <a href="#"><img alt="" src="../assets/img/cart/cart-1.jpg"></a>
+                                            <a href="/product/{{product.id}}">
+                                            {% if product.image %}
+                                            <img src="/assets/img/product/min/{{product.image.file_name}}" alt="">
+                                            {% else %}
+                                            <img height="100px" src="/assets/img/product/min/not-img.jpg" alt="">
+                                            {% endif %}
                                         </div>
                                         <div class="shopping-cart-title">
-                                            <h4><a href="#">Dog Calcium Food </a></h4>
-                                            <h6>Qty: 02</h6>
-                                            <span>$260.00</span>
+                                            <h4><a href="/product/{{product.id}}">{{product.name}}</a></h4>
+                                            <h6>Qty:{{product.qty}}</h6>
+                                            <span>${{product.countPrice}}</span>
                                         </div>
                                         <div class="shopping-cart-delete">
-                                            <a href="#"><i class="ti-close"></i></a>
+                                            <a href="/cart/delete/{{product.id}}"><i class="ti-close"></i></a>
                                         </div>
                                     </li>
-                                    <li class="single-shopping-cart">
-                                        <div class="shopping-cart-img">
-                                            <a href="#"><img alt="" src="../assets/img/cart/cart-2.jpg"></a>
-                                        </div>
-                                        <div class="shopping-cart-title">
-                                            <h4><a href="#">Dog Calcium Food</a></h4>
-                                            <h6>Qty: 02</h6>
-                                            <span>$260.00</span>
-                                        </div>
-                                        <div class="shopping-cart-delete">
-                                            <a href="#"><i class="ti-close"></i></a>
-                                        </div>
-                                    </li>
+                                    {% endfor %} 
                                 </ul>
+                                
                                 <div class="shopping-cart-total">
                                     <h4>Shipping : <span>$20.00</span></h4>
-                                    <h4>Total : <span class="shop-total">$260.00</span></h4>
+                                    <h4>Total : <span class="shop-total">${{cart.subTotal}}</span></h4>
+       
                                 </div>
+                                {% endif %}
                                 <div class="shopping-cart-btn">
                                     <a href="/cart">view cart</a>
                                     <a href="checkout.html">checkout</a>

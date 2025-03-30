@@ -17,12 +17,12 @@ class Controller_Main extends Controller_Public
     public function action_index()
     {
         $products = Product::getPopular();
-
         $articles = Article::table()->order_by_desc('id')->limit(3)->findMany();
-        $bestProduct = BestProduct::get();
+
+        $best_product = BestProduct::get();
     
         // dd($products);
-        $this->render('main/index', ['products' => $products, 'articles' => $articles, 'best_product' => $bestProduct]);
+        $this->render('main/index', compact('products', 'articles', 'best_product' ));
     }
 
     public function action_shop()

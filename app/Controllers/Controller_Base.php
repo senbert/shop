@@ -26,4 +26,11 @@ class Controller_Base
         return $this;
     }
 
+    public function home()
+    {
+        header('location: /');
+        exit();
+    }
+
+
 }

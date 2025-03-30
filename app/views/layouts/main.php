@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/responsive.css">
     <link rel="stylesheet" href="/assets/css/jquery-ui.css">
+    
 </head>
 <body>
 
@@ -42,5 +43,6 @@
 <script src="/assets/js/owl.carousel.min.js"></script>
 <script src="/assets/js/plugins.js"></script>
 <script src="/assets/js/main.js"></script>
+<script src="/assets/js/get_station.js"></script>
 </body>
 </html>

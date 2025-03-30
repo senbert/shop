@@ -40,6 +40,13 @@ SimpleRouter::get('contact/status/{contct_id}', 'Controller_ContactAdmin@action_
 // Cart 
 SimpleRouter::get('cart/', 'Controller_Cart@action_index');
 SimpleRouter::get('cart/add/{prod_id}/{qty?}', 'Controller_Cart@action_add');
+SimpleRouter::get('cart/delete/{prod_id}/', 'Controller_Cart@action_delete');
+SimpleRouter::post('cart/update/', 'Controller_Cart@action_update');
+SimpleRouter::get('/cart/clear/', 'Controller_Cart@action_clear'); 
+SimpleRouter::get('/cart/country/', 'Controller_Cart@action_country'); 
+SimpleRouter::post('cart/shiping/', 'Controller_Cart@action_shiping');
+SimpleRouter::post('cart/discount/', 'Controller_Cart@action_discount');
+
 
 // admin Product
 SimpleRouter::get('admin/products', 'Controller_Product@action_index');
