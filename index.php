@@ -56,6 +56,15 @@ SimpleRouter::get('admin/delete/{id}', 'Controller_Product@action_delete');
 SimpleRouter::get('admin/edit/{id}', 'Controller_Product@action_edit');
 SimpleRouter::post('admin/edit_create/', 'Controller_Product@action_edit_create');
 
+// admin Discount
+SimpleRouter::get('admin/discount', 'Controller_Discount@action_index');
+SimpleRouter::get('admin/add_discount', 'Controller_Discount@action_add');
+SimpleRouter::post('admin/add_discount', 'Controller_Discount@action_create');
+SimpleRouter::get('admin/discount_delete/{id}', 'Controller_Discount@action_delete');
+SimpleRouter::get('admin/discount_edit/{id}', 'Controller_Discount@action_edit');
+SimpleRouter::post('admin/discount_edit', 'Controller_Discount@action_editDiscount');
+
+
 // admin sincle product
 SimpleRouter::get('admin/product/{id}', 'Controller_Product@action_single');
 SimpleRouter::get('admin/image/{id}', 'Controller_Product@action_image');

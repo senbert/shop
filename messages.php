@@ -37,6 +37,8 @@ return [
         'add_comm_product' => 'ошибка добавления комментария',
         'add_brand' => 'ошибка добавления',
         'edit_brand' => 'Ошибка изменения',
+        'empty_data_product_money' => 'Ошибка добавления money',
+        'empty_data_product_discount' => 'Ошибка добавления discount',
         
 
 

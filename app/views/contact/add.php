@@ -1,26 +1,47 @@
-
-<form action="contact/add" method="post">
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="contact-form-style mb-20">
-                <input name="name" placeholder="Full Name" type="text">
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="contact-form-style mb-20">
-                <input name="email" placeholder="Email Address" type="email">
-            </div>
-        </div>
-        <div class="col-lg-12">
-            <div class="contact-form-style mb-20">
-                <input name="subject" placeholder="Subject" type="text">
-            </div>
-        </div>
-        <div class="col-lg-12">
-            <div class="contact-form-style">
-                <textarea name="message" placeholder="Message"></textarea>
-                <button class="submit btn-style" type="submit">SEND MESSAGE</button>
-            </div>
-        </div>
-    </div>
-</form>
+<div class="container">
+	<div class="row">
+		<div class="col-6 mx-auto">
+			<form action='/admin/add_product' method="post" enctype="multipart/form-data">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input name="name" type="text" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="description">Description</label>
+					<textarea name="description" class="form-control" id="description" rows="3"></textarea>
+				</div>
+                <div class="form-group">
+					<label>Price</label>
+					<input name="price" type="number" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Brand</label>
+					<select name="brand_id" id="brand_id">
+						<option value="">Not select</option> 
+						{% for brand in brands %}
+						<option value="{{brand.id}}">{{brand.name}}</option>
+						{% endfor %}
+					</select>
+				</div>
+                <div class="form-group">
+					<label>Category</label>
+					<select name="cat_id" id="">
+						<option value="">Not select</option> 
+						{% for cat in categories %}
+						<option value="{{cat.id}}">{{cat.name}}</option>
+						{% endfor %}
+					</select>
+				</div>
+                <div class="form-group">
+					<label>Preview </label>
+					<input name="preview" type="text" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Img</label>
+					<input name="img" type="file" class="form-control">
+				</div>
+				<button type="submit" class="btn btn-primary">Add</button>
+			</form>
+		</div>
+	</div>
+</div>

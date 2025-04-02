@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controllers;
 use App\Models\Product;
 use App\Models\Article;
@@ -32,11 +31,20 @@ class Controller_Cart extends Controller_Public
 
     public function action_country()
     {
-        echo 'test';
+        $states = CountryState::table()->where('country_id', $_GET['country_id'])->findArray();
+        // dd($states);
+        $states = json_encode($states);
+        echo $states;
+        // $arr = [
+        //     'name' => 'Maks',
+        //     'age' => 23
+        // ];
+        // $arr = json_encode($arr);
+        // echo $arr;
         // if ($_GET['country_id']) {
         //     $_SESSION['country_id'] = $_GET['country_id'];
         // }
-        // $this->redirect('cart');
+    // $this->redirect('cart');
         
     }
 

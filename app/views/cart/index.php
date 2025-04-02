@@ -87,14 +87,16 @@
                                                 <label>
                                                     State/Province
                                                 </label>
-                                                {% if states %}
-                                                <select class="email s-email s-wid" name="state_id">
+                                               
+                                                <select class="email s-email s-wid" name="state_id" id="states">
+                                                     {% if states %}
                                                     <option value="">Не выбрано</option>
                                                     {% for state in states %}
                                                         <option value="{{state.id}}" {{state.id == cart.state_id ? "selected"}}>{{state.name}}</option>
                                                     {% endfor %}
+                                                    {% endif %}
                                                 </select>
-                                                {% endif %}
+                                               
                                             </div>
                                             <div class="tax-select">
                                                 <label>

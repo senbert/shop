@@ -42,6 +42,9 @@
 					<a class="nav-link" href="/brand">Brands</a>
 				</li>
 				<li class="nav-item">
+					<a class="nav-link" href="/admin/discount">Add discount</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link" href="/admin/contact">Contacts</a>
 				</li>
 				<li class="nav-item dropdown">
